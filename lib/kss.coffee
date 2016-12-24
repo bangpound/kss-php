@@ -9,7 +9,7 @@
 #   => a.pseudo-class-hover{ color:blue; }
 class KssStateGenerator
   constructor: ->
-    pseudos = /(\:hover|\:disabled|\:active|\:visited|\:focus|\:target)/g
+    pseudos = /(:hover|:disabled|:active|:visited|:focus|:target)/g
 
     try
       for stylesheet in document.styleSheets
@@ -18,7 +18,7 @@ class KssStateGenerator
           for rule, idx in stylesheet.cssRules
             if (rule.type == CSSRule.STYLE_RULE) && pseudos.test(rule.selectorText)
               replaceRule = (matched, stuff) ->
-                return matched.replace(/\:/g, '.pseudo-class-')
+                return matched.replace(/:/g, '.pseudo-class-')
               @insertRule(rule.cssText.replace(pseudos, replaceRule))
             pseudos.lastIndex = 0
 
