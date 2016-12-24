@@ -107,8 +107,6 @@ class Section
      */
     public function getTitle()
     {
-        $title = '';
-
         $titleComment = $this->getTitleComment();
         if (preg_match('/^\s*#+\s*(.+)/', $titleComment, $matches)) {
             $title = $matches[1];
@@ -288,7 +286,6 @@ class Section
      */
     public function getParameters()
     {
-        $lastIndent = null;
         $parameters = array();
 
         if ($parameterComment = $this->getParametersComment()) {
