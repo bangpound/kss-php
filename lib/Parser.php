@@ -113,7 +113,7 @@ class Parser
         $topLevelSections = array();
 
         foreach ($this->sections as $section) {
-            if ($section->getDepth() != 0) {
+            if ($section->getDepth() !== 0) {
                 break;
             }
             $topLevelSections[] = $section;
@@ -150,7 +150,7 @@ class Parser
             $testSectionKey = strtolower(Section::normalizeReference($sectionKey));
             // Only get sections within that level. Do not get the level itself
             if (strpos($testSectionKey . '.', $reference) === 0
-                && $testSectionKey . '.' != $reference
+                && $testSectionKey . '.' !== $reference
             ) {
                 $section = $this->sections[$sectionKey];
                 if ($maxDepth !== null && $section->getDepth() > $maxDepth) {

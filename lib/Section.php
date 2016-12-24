@@ -134,14 +134,14 @@ class Section
         foreach ($this->getCommentSections() as $commentSection) {
             // Anything that is not the section comment or modifiers comment
             // must be the description comment
-            if ($commentSection != $this->getReferenceComment()
-                && $commentSection != $this->getTitleComment()
-                && $commentSection != $this->getMarkupComment()
-                && $commentSection != $this->getDeprecatedComment()
-                && $commentSection != $this->getExperimentalComment()
-                && $commentSection != $this->getCompatibilityComment()
-                && $commentSection != $this->getModifiersComment()
-                && $commentSection != $this->getParametersComment()
+            if ($commentSection !== $this->getReferenceComment()
+                && $commentSection !== $this->getTitleComment()
+                && $commentSection !== $this->getMarkupComment()
+                && $commentSection !== $this->getDeprecatedComment()
+                && $commentSection !== $this->getExperimentalComment()
+                && $commentSection !== $this->getCompatibilityComment()
+                && $commentSection !== $this->getModifiersComment()
+                && $commentSection !== $this->getParametersComment()
             ) {
                 $descriptionSections[] = $commentSection;
             }
@@ -404,7 +404,7 @@ class Section
      */
     public static function trimReference($reference)
     {
-        if (substr($reference, -1) == '.' || substr($reference, -1) == '-') {
+        if (substr($reference, -1) === '.' || substr($reference, -1) === '-') {
             $reference = trim(substr($reference, 0, -1));
         }
         while (preg_match('/(\.0+)$/', $reference, $matches)) {
@@ -504,7 +504,7 @@ class Section
      */
     public static function depthSort(Section $a, Section $b)
     {
-        if ($a->getDepth() == $b->getDepth()) {
+        if ($a->getDepth() === $b->getDepth()) {
             return self::alphaDepthScoreSort($a, $b);
         }
         return $a->getDepth() > $b->getDepth();
