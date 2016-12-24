@@ -170,7 +170,7 @@ class Section
      * Returns the markup for the normal element (without modifierclass)
      *
      * @param string $replacement Replacement for $modifierClass variable
-     * @return void
+     * @return string
      */
     public function getMarkupNormal($replacement = '')
     {
@@ -477,6 +477,7 @@ class Section
      * Calculates and returns the depth score for the section. Useful for sorting
      * sections correctly by their section reference numbers
      *
+     * @param $reference
      * @return int|null
      */
     public static function calcDepthScore($reference)

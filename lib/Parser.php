@@ -34,6 +34,7 @@ class Parser
      *
      * @param string|array $paths A string or array of the paths to scan for KSS
      *                            Comments
+     * @throws \InvalidArgumentException
      */
     public function __construct($paths)
     {
@@ -73,7 +74,7 @@ class Parser
      *
      * @return Section
      *
-     * @throws UnexepectedValueException if reference does not exist
+     * @throws UnexpectedValueException if reference does not exist
      */
     public function getSection($reference)
     {
@@ -104,7 +105,7 @@ class Parser
     /**
      * Returns only the top level sections (i.e. 1.0, 2.0, 3.0, etc.)
      *
-     * @return array
+     * @return Section[]
      */
     public function getTopLevelSections()
     {
