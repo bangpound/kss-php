@@ -195,7 +195,7 @@ class CommentParser
      */
     public static function isEndMultiLineComment($line)
     {
-        return (bool) preg_match('-.*\*/-', $line);
+        return (bool) preg_match('-\*/-', $line);
     }
 
     /**
