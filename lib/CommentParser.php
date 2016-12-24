@@ -114,12 +114,10 @@ class CommentParser
 
             // If we're not in a comment then end the current block and go to
             // the next one
-            if (!$isSingleLineComment && !$insideMultiLineBlock) {
-                if (!empty($currentBlock)) {
-                    $this->blocks[] = $this->normalize($currentBlock);
-                    $insideSingleLineBlock = false;
-                    $currentBlock = '';
-                }
+            if (!$isSingleLineComment && !$insideMultiLineBlock && !empty($currentBlock)) {
+                $this->blocks[] = $this->normalize($currentBlock);
+                $insideSingleLineBlock = false;
+                $currentBlock = '';
             }
         }
 
