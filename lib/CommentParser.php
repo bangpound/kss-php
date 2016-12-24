@@ -16,7 +16,7 @@ class CommentParser
      *
      * @var \SplFileObject
      */
-    protected $file = null;
+    protected $file;
 
     /**
      * Options use to control the parser

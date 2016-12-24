@@ -30,49 +30,49 @@ class Section
      *
      * @var \SplFileObject
      */
-    protected $file = null;
+    protected $file;
 
     /**
      * The parsed markup comment in the KSS Block
      *
      * @var string
      */
-    protected $markup = null;
+    protected $markup;
 
     /**
      * The deprecation notice in the KSS Block
      *
      * @var string
      */
-    protected $deprecated = null;
+    protected $deprecated;
 
     /**
      * The experimental notice in the KSS Block
      *
      * @var string
      */
-    protected $experimental = null;
+    protected $experimental;
 
     /**
      * The compatibility informations
      *
      * @var string
      */
-    protected $compatibility = null;
+    protected $compatibility;
 
     /**
      * The section reference identifier
      *
      * @var string
      */
-    protected $reference = null;
+    protected $reference;
 
     /**
      * The section reference identifier dot delimited
      *
      * @var string
      */
-    protected $referenceDotDelimited = null;
+    protected $referenceDotDelimited;
 
     /**
      * Creates a section with the KSS Comment Block and source file
