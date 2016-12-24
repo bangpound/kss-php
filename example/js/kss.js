@@ -2,22 +2,20 @@
   var KssStateGenerator;
 
   KssStateGenerator = (function() {
-
     function KssStateGenerator() {
-      var idx, idxs, pseudos, replaceRule, rule, stylesheet, _i, _j, _len, _len1, _ref, _ref1;
-      pseudos = /(\:hover|\:disabled|\:active|\:visited|\:focus|\:target)/g;
+      var i, j, len, len1, pseudos, ref, ref1, replaceRule, rule, stylesheet;
+      pseudos = /(:hover|:disabled|:active|:visited|:focus|:target)/g;
       try {
-        _ref = document.styleSheets;
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          stylesheet = _ref[_i];
+        ref = document.styleSheets;
+        for (i = 0, len = ref.length; i < len; i++) {
+          stylesheet = ref[i];
           if (stylesheet.href.indexOf(document.domain) >= 0) {
-            idxs = [];
-            _ref1 = stylesheet.cssRules;
-            for (idx = _j = 0, _len1 = _ref1.length; _j < _len1; idx = ++_j) {
-              rule = _ref1[idx];
+            ref1 = stylesheet.cssRules;
+            for (j = 0, len1 = ref1.length; j < len1; j++) {
+              rule = ref1[j];
               if ((rule.type === CSSRule.STYLE_RULE) && pseudos.test(rule.selectorText)) {
-                replaceRule = function(matched, stuff) {
-                  return matched.replace(/\:/g, '.pseudo-class-');
+                replaceRule = function(matched) {
+                  return matched.replace(/:/g, '.pseudo-class-');
                 };
                 this.insertRule(rule.cssText.replace(pseudos, replaceRule));
               }
@@ -25,7 +23,7 @@
             }
           }
         }
-      } catch (_error) {}
+      } catch (error) {}
     }
 
     KssStateGenerator.prototype.insertRule = function(rule) {
